@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Hole Simulator</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: rgb(15, 11, 70);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+        }
+        #info {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <label>
+            Black Hole Mass:
+            <input type="range" id="blackHoleMass" min="1" max="100" value="10">
+        </label>
+        <label>
+            Black Hole Radius:
+            <input type="range" id="blackHoleRadius" min="10" max="100" value="50">
+        </label>
+        <label>
+            Number of Particles:
+            <input type="range" id="numParticles" min="50" max="500" value="200">
+        </label>
+        <button id="resetParticles">Reset Particles</button>
+    </div>
+    <div id="info">
+        <p><strong>Black Hole Simulator</strong></p>
+        <p>Use the sliders to adjust the black hole's mass, radius, and the number of particles.</p>
+        <p>Click and drag the black hole to move it around.</p>
+        <p>Click on the canvas to spawn new particles.</p>
+    </div>
+    <canvas id="simulationCanvas"></canvas>
+    <script src="{{ url_for('static', filename='blackhole.js') }}"></script>
+</body>
+</html>
